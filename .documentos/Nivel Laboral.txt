@@ -1,0 +1,15 @@
+<!-- Este bloque va dentro de tu sección de Formación o en una nueva sección de Perfil Profesional -->
+<div class="bg-white p-6 rounded-[30px] shadow-sm border border-slate-100">
+    <p class="text-[11px] font-black text-cyan-600 uppercase mb-4 tracking-widest">💼 Nivel Laboral</p>
+    <label for="reg-nivel" class="text-xs font-bold text-slate-400 block px-1 uppercase mb-2">¿Cuál es tu nivel actual?</label>
+    <select id="reg-nivel" class="zeil-input">
+        <option value="" disabled selected>Selecciona tu nivel...</option>
+        <option value="trainee">Trainee / Sin experiencia (Aprendizaje inicial)</option>
+        <option value="junior">Junior (1-2 años, ejecución supervisada)</option>
+        <option value="semi-senior">Semi Senior (3-5 años, autonomía funcional)</option>
+        <option value="senior">Senior (5+ años, dominio técnico experto)</option>
+        <option value="liderazgo">Jefe / Supervisor (Gestión de equipos)</option>
+        <option value="gerencia">Gerencia / Alta Dirección (Visión estratégica)</option>
+        <option value="otro">Otro</option>
+    </select>
+</div>
