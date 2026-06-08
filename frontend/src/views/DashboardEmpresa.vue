@@ -26,7 +26,7 @@
           class="text-[9px] uppercase font-extrabold tracking-widest text-teal border border-teal/20 px-2.5 py-0.5 rounded-full select-none" 
           style="font-family: var(--font-body); letter-spacing: 1px;"
           :style="postulanteStore.highContrastMode ? { color: '#ffff00', borderColor: '#ffff00' } : {}"
-        >
+        > Empresa
         </span>
       </div>
       <div class="nav-cta flex gap-2 items-center">
