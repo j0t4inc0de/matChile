@@ -23,18 +23,25 @@
         >
           <!-- Tinder stamp indicators -->
           <div 
-            v-if="index === 0 && isDragging && dragX > 20" 
+            v-if="index === 0 && isDragging && dragX > 20 && Math.abs(dragX) > Math.abs(dragY)" 
             class="absolute top-8 left-8 border-4 border-emerald-500 text-emerald-500 font-display uppercase tracking-widest text-lg font-black px-4 py-1.5 rounded rotate-[-12deg] select-none pointer-events-none z-35 bg-black/5 backdrop-blur-xs"
             :style="{ opacity: Math.min(dragX / 100, 1) }"
           >
             CONECTAR
           </div>
           <div 
-            v-if="index === 0 && isDragging && dragX < -20" 
+            v-if="index === 0 && isDragging && dragX < -20 && Math.abs(dragX) > Math.abs(dragY)" 
             class="absolute top-8 right-8 border-4 border-rose-500 text-rose-500 font-display uppercase tracking-widest text-lg font-black px-4 py-1.5 rounded rotate-[12deg] select-none pointer-events-none z-35 bg-black/5 backdrop-blur-xs"
             :style="{ opacity: Math.min(-dragX / 100, 1) }"
           >
             DESCARTAR
+          </div>
+          <div 
+            v-if="index === 0 && isDragging && dragY < -20 && Math.abs(dragY) > Math.abs(dragX)" 
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-4 border-sky-500 text-sky-500 font-display uppercase tracking-widest text-lg font-black px-6 py-2.5 rounded select-none pointer-events-none z-35 bg-black/5 backdrop-blur-xs text-center"
+            :style="{ opacity: Math.min(-dragY / 100, 1) }"
+          >
+            SUPER MATCH
           </div>
 
           <!-- Card Header -->
@@ -111,18 +118,40 @@
       </div>
     </div>
 
-    <!-- Bottom Action Buttons (Macizos de gran dimensión) -->
+    <!-- Bottom Action Buttons (Tinder Style) -->
     <div 
       v-if="candidates.length > 0 && currentIndex < candidates.length"
-      class="flex justify-center items-center space-x-6 w-full mt-6"
+      class="flex justify-center items-center space-x-4 w-full mt-6"
     >
+      <!-- Rewind / Undo Button -->
+      <button 
+        @click="$emit('undo')"
+        :disabled="!canUndo"
+        class="w-12 h-12 rounded-full bg-amber-50 border border-amber-200/50 text-amber-500 hover:bg-amber-100 flex items-center justify-center shadow-md transition-all active:scale-90 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-amber-50"
+        aria-label="Deshacer último deslizamiento"
+        title="Deshacer (Teclas: Backspace / Flecha Abajo)"
+      >
+        <span class="material-symbols-outlined text-2xl font-bold">undo</span>
+      </button>
+
       <!-- Dislike Button -->
       <button 
         @click="triggerSwipe('left')"
         class="w-16 h-16 rounded-full bg-rose-50 border border-rose-200/50 text-rose-500 hover:bg-rose-100 flex items-center justify-center shadow-lg transition-transform duration-150 active:scale-90"
         aria-label="Rechazar candidato"
+        title="Descartar (Flecha Izquierda)"
       >
         <span class="material-symbols-outlined text-3xl font-bold">close</span>
+      </button>
+
+      <!-- Super Like Button -->
+      <button 
+        @click="triggerSwipe('up')"
+        class="w-12 h-12 rounded-full bg-sky-50 border border-sky-200/50 text-sky-500 hover:bg-sky-100 flex items-center justify-center shadow-md transition-all active:scale-90"
+        aria-label="Super Match candidato"
+        title="Super Match (Flecha Arriba)"
+      >
+        <span class="material-symbols-outlined text-2xl font-bold">star</span>
       </button>
 
       <!-- Like / Match Button -->
@@ -130,6 +159,7 @@
         @click="triggerSwipe('right')"
         class="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200/50 text-emerald-500 hover:bg-emerald-100 flex items-center justify-center shadow-lg transition-transform duration-150 active:scale-90"
         aria-label="Aceptar / Conectar candidato"
+        title="Conectar (Flecha Derecha)"
       >
         <span class="material-symbols-outlined text-3xl font-bold">check</span>
       </button>
@@ -154,9 +184,13 @@ export default {
     modalOpen: {
       type: Boolean,
       default: false
+    },
+    canUndo: {
+      type: Boolean,
+      default: false
     }
   },
-  emits: ['swipe-left', 'swipe-right', 'expand'],
+  emits: ['swipe-left', 'swipe-right', 'super-like', 'undo', 'expand'],
   setup(props, { emit }) {
     const swipeDirection = ref(null);
     
@@ -199,8 +233,10 @@ export default {
       setTimeout(() => {
         if (direction === 'left') {
           emit('swipe-left');
-        } else {
+        } else if (direction === 'right') {
           emit('swipe-right');
+        } else if (direction === 'up') {
+          emit('super-like');
         }
         swipeDirection.value = null;
         dragX.value = 0;
@@ -220,6 +256,13 @@ export default {
       if (swipeDirection.value === 'right') {
         return {
           transform: 'translateX(150%) rotate(20deg)',
+          opacity: '0',
+          transition: 'all 0.4s ease-in-out'
+        };
+      }
+      if (swipeDirection.value === 'up') {
+        return {
+          transform: 'translateY(-150%) scale(0.95)',
           opacity: '0',
           transition: 'all 0.4s ease-in-out'
         };
@@ -269,8 +312,8 @@ export default {
       dragX.value = clientX - dragStartX.value;
       dragY.value = clientY - dragStartY.value;
 
-      // Prevent page scrolling on mobile only if swiping horizontally
-      if (event.cancelable && Math.abs(dragX.value) > Math.abs(dragY.value)) {
+      // Prevent page scrolling on mobile only if swiping or dragging
+      if (event.cancelable) {
         event.preventDefault();
       }
     };
@@ -285,7 +328,9 @@ export default {
       window.removeEventListener('touchend', handleDragEnd);
       
       const threshold = 120; // Drag threshold in px
-      if (dragX.value > threshold) {
+      if (dragY.value < -threshold && Math.abs(dragY.value) > Math.abs(dragX.value)) {
+        triggerSwipe('up');
+      } else if (dragX.value > threshold) {
         triggerSwipe('right');
       } else if (dragX.value < -threshold) {
         triggerSwipe('left');
@@ -305,6 +350,10 @@ export default {
         triggerSwipe('left');
       } else if (event.key === 'ArrowRight') {
         triggerSwipe('right');
+      } else if (event.key === 'ArrowUp') {
+        triggerSwipe('up');
+      } else if (event.key === 'Backspace' || event.key === 'ArrowDown') {
+        emit('undo');
       }
     };
 
@@ -324,6 +373,7 @@ export default {
       visibleStack,
       swipeDirection,
       dragX,
+      dragY,
       isDragging,
       cardStyle,
       getInitials,

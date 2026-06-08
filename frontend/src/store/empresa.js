@@ -172,6 +172,333 @@ const MOCK_CANDIDATES = [
       activo: false,
       ajustes_razonables: []
     }
+  },
+  {
+    id: 6,
+    nombre_legal: "Francisca Elena Rojas Pinto",
+    nombre_social: "Fran Rojas",
+    nacionalidad: "Chile",
+    fecha_nacimiento: "1994-06-15",
+    identidad_genero: "Femenino",
+    contacto: {
+      whatsapp: "+56988887777",
+      email: "fran.rojas@email.com",
+      linkedin: "https://linkedin.com/in/fran-rojas-enfermera"
+    },
+    ubicacion: {
+      region_residencia: "Región Metropolitana de Santiago",
+      comuna_residencia: "Las Condes",
+      comuna_otra: "",
+      regiones_movilidad: ["Región Metropolitana de Santiago", "Región de Valparaíso"]
+    },
+    formacion: {
+      nivel_estudios: "universitario",
+      area_laboral: "Enfermería (Universitaria)",
+      experiencia_laboral_total_anos: 5,
+      certificaciones: "Curso IAAS (Infecciones Asoc. a la Atención en Salud), RCP/BLS/ACLS (AHA)"
+    },
+    historial_laboral: [
+      { cargo: "Enfermera Clínica", empresa: "Clínica Indisa", funciones: "Atención y cuidado integral de pacientes en servicios médico-quirúrgicos." },
+      { cargo: "Enfermera Universitaria", empresa: "Hospital San Borja Arriarán", funciones: "Gestión de turnos de personal técnico y apoyo clínico directo." }
+    ],
+    inclusion_ley_21015: {
+      activo: false,
+      ajustes_razonables: []
+    }
+  },
+  {
+    id: 7,
+    nombre_legal: "Nicolás Ignacio Jara Toledo",
+    nombre_social: "Nico Jara",
+    nacionalidad: "Chile",
+    fecha_nacimiento: "1997-03-22",
+    identidad_genero: "Masculino",
+    contacto: {
+      whatsapp: "+56977776666",
+      email: "nico.jara@email.com",
+      linkedin: "https://linkedin.com/in/nico-jara-tens"
+    },
+    ubicacion: {
+      region_residencia: "Región de Valparaíso",
+      comuna_residencia: "Valparaíso",
+      comuna_otra: "",
+      regiones_movilidad: ["Región de Valparaíso", "Región Metropolitana de Santiago"]
+    },
+    formacion: {
+      nivel_estudios: "tecnico-profesional",
+      area_laboral: "Técnico en Enfermería (TENS)",
+      experiencia_laboral_total_anos: 3,
+      certificaciones: "Curso IAAS, Toma de Muestras, Vacunatorio PNI (MINSAL)"
+    },
+    historial_laboral: [
+      { cargo: "TENS de Urgencias", empresa: "Hospital Carlos Van Buren", funciones: "Asistencia directa en box de reanimación y categorización de pacientes." },
+      { cargo: "Tens Toma de Muestras", empresa: "Laboratorio Clínico Valparaíso", funciones: "Punción venosa y toma de muestras sanguíneas." }
+    ],
+    inclusion_ley_21015: {
+      activo: true,
+      ajustes_razonables: ["Infraestructura / Acceso Silla de Ruedas"]
+    }
+  },
+  {
+    id: 8,
+    nombre_legal: "Camila Belén Henríquez Araya",
+    nombre_social: "",
+    nacionalidad: "Chile",
+    fecha_nacimiento: "1991-09-08",
+    identidad_genero: "Femenino",
+    contacto: {
+      whatsapp: "+56966665555",
+      email: "camila.henriquez@email.com",
+      linkedin: ""
+    },
+    ubicacion: {
+      region_residencia: "Región del Biobío",
+      comuna_residencia: "Los Ángeles",
+      comuna_otra: "",
+      regiones_movilidad: ["Región del Biobío", "Región de Ñuble"]
+    },
+    formacion: {
+      nivel_estudios: "universitario",
+      area_laboral: "Enfermería (Universitaria)",
+      experiencia_laboral_total_anos: 7,
+      certificaciones: "Diplomado en Salud Familiar, RCP/BLS/ACLS (AHA)"
+    },
+    historial_laboral: [
+      { cargo: "Enfermera Coordinadora", empresa: "CESFAM Los Ángeles", funciones: "Gestión de programas de salud familiar y visitas domiciliarias." },
+      { cargo: "Enfermera Clínica", empresa: "Clínica Los Andes", funciones: "Atención de pacientes hospitalizados de complejidad media." }
+    ],
+    inclusion_ley_21015: {
+      activo: false,
+      ajustes_razonables: []
+    }
+  },
+  {
+    id: 9,
+    nombre_legal: "Matías Andrés Morales Venegas",
+    nombre_social: "Mati Morales",
+    nacionalidad: "Chile",
+    fecha_nacimiento: "1998-12-05",
+    identidad_genero: "Masculino",
+    contacto: {
+      whatsapp: "+56955556666",
+      email: "matias.morales@email.com",
+      linkedin: "https://linkedin.com/in/matias-morales-tens"
+    },
+    ubicacion: {
+      region_residencia: "Región Metropolitana de Santiago",
+      comuna_residencia: "Maipú",
+      comuna_otra: "",
+      regiones_movilidad: ["Región Metropolitana de Santiago"]
+    },
+    formacion: {
+      nivel_estudios: "tecnico-profesional",
+      area_laboral: "Técnico en Enfermería (TENS)",
+      experiencia_laboral_total_anos: 2,
+      certificaciones: "Curso IAAS, Curso RCP Básico"
+    },
+    historial_laboral: [
+      { cargo: "TENS en Domicilio", empresa: "Acuidad Salud Chile", funciones: "Cuidado clínico de pacientes con hospitalización domiciliaria." }
+    ],
+    inclusion_ley_21015: {
+      activo: false,
+      ajustes_razonables: []
+    }
+  },
+  {
+    id: 10,
+    nombre_legal: "Valentina Sofía Castro Muñoz",
+    nombre_social: "Vale Castro",
+    nacionalidad: "Chile",
+    fecha_nacimiento: "1992-07-28",
+    identidad_genero: "Femenino",
+    contacto: {
+      whatsapp: "+56944443333",
+      email: "vale.castro@email.com",
+      linkedin: "https://linkedin.com/in/valentina-castro-enfermeria"
+    },
+    ubicacion: {
+      region_residencia: "Región de la Araucanía",
+      comuna_residencia: "Temuco",
+      comuna_otra: "",
+      regiones_movilidad: ["Región de la Araucanía", "Región de Los Ríos"]
+    },
+    formacion: {
+      nivel_estudios: "universitario",
+      area_laboral: "Enfermería (Universitaria)",
+      experiencia_laboral_total_anos: 6,
+      certificaciones: "Manejo de Heridas y Ostomías, Curso IAAS (Infecciones Asoc. a la Atención en Salud), RCP/BLS/ACLS (AHA)"
+    },
+    historial_laboral: [
+      { cargo: "Enfermera Universitaria", empresa: "Hospital Hernán Henríquez Aravena", funciones: "Atención de urgencias pediátricas, curación avanzada y cateterismo." },
+      { cargo: "Enfermera de Calidad", empresa: "Clínica Alemana Temuco", funciones: "Supervisión de protocolos de seguridad clínica y acreditación." }
+    ],
+    inclusion_ley_21015: {
+      activo: false,
+      ajustes_razonables: []
+    }
+  },
+  {
+    id: 11,
+    nombre_legal: "Javiera Paz Espinoza Garrido",
+    nombre_social: "Javi Espinoza",
+    nacionalidad: "Chile",
+    fecha_nacimiento: "1995-10-12",
+    identidad_genero: "Femenino",
+    contacto: {
+      whatsapp: "+56933332222",
+      email: "javi.espinoza@email.com",
+      linkedin: "https://linkedin.com/in/javi-espinoza-tens"
+    },
+    ubicacion: {
+      region_residencia: "Región Metropolitana de Santiago",
+      comuna_residencia: "Puente Alto",
+      comuna_otra: "",
+      regiones_movilidad: ["Región Metropolitana de Santiago"]
+    },
+    formacion: {
+      nivel_estudios: "tecnico-profesional",
+      area_laboral: "Técnico en Enfermería (TENS)",
+      experiencia_laboral_total_anos: 4,
+      certificaciones: "Curso IAAS, Esterilización, Toma de Muestras"
+    },
+    historial_laboral: [
+      { cargo: "TENS Esterilización", empresa: "Hospital Sótero del Río", funciones: "Esterilización de instrumental quirúrgico, empaque y distribución." },
+      { cargo: "TENS en Consultorio", empresa: "CESFAM Puente Alto", funciones: "Vacunación, control de salud infantil y registro digital de fichas." }
+    ],
+    inclusion_ley_21015: {
+      activo: true,
+      ajustes_razonables: ["Apoyo Cognitivo (Formatos accesibles y textos en lenguaje claro)"]
+    }
+  },
+  {
+    id: 12,
+    nombre_legal: "Diego Alonso Tapia Silva",
+    nombre_social: "Diego Tapia",
+    nacionalidad: "Chile",
+    fecha_nacimiento: "1993-02-14",
+    identidad_genero: "Masculino",
+    contacto: {
+      whatsapp: "+56922221111",
+      email: "diego.tapia@email.com",
+      linkedin: ""
+    },
+    ubicacion: {
+      region_residencia: "Región de Coquimbo",
+      comuna_residencia: "La Serena",
+      comuna_otra: "",
+      regiones_movilidad: ["Región de Coquimbo", "Región de Valparaíso"]
+    },
+    formacion: {
+      nivel_estudios: "universitario",
+      area_laboral: "Enfermería (Universitaria)",
+      experiencia_laboral_total_anos: 4,
+      certificaciones: "RCP/BLS/ACLS (AHA), Curso IAAS (Infecciones Asoc. a la Atención en Salud)"
+    },
+    historial_laboral: [
+      { cargo: "Enfermero de Pabellón", empresa: "Clínica Elqui", funciones: "Asistencia directa en pabellón de cirugía general y control de insumos quirúrgicos." }
+    ],
+    inclusion_ley_21015: {
+      activo: false,
+      ajustes_razonables: []
+    }
+  },
+  {
+    id: 13,
+    nombre_legal: "Bárbara Nicole Vergara Fuentes",
+    nombre_social: "Barby Vergara",
+    nacionalidad: "Chile",
+    fecha_nacimiento: "1990-05-30",
+    identidad_genero: "Femenino",
+    contacto: {
+      whatsapp: "+56911112222",
+      email: "barbara.vergara@email.com",
+      linkedin: "https://linkedin.com/in/barbara-vergara-tens"
+    },
+    ubicacion: {
+      region_residencia: "Región del Maule",
+      comuna_residencia: "Talca",
+      comuna_otra: "",
+      regiones_movilidad: ["Región del Maule", "Región del Biobío", "Región de Ñuble"]
+    },
+    formacion: {
+      nivel_estudios: "tecnico-profesional",
+      area_laboral: "Técnico en Enfermería (TENS)",
+      experiencia_laboral_total_anos: 8,
+      certificaciones: "Curso IAAS, Vacunatorio PNI (MINSAL), Esterilización"
+    },
+    historial_laboral: [
+      { cargo: "TENS Coordinadora de Vacunatorio", empresa: "Clínica del Maule", funciones: "Gestión de vacunas contra COVID e influenza, cadena de frío y reportes MINSAL." },
+      { cargo: "TENS de Apoyo", empresa: "Hospital Regional de Talca", funciones: "Monitoreo de signos vitales, confort e higiene de pacientes post-operatorios." }
+    ],
+    inclusion_ley_21015: {
+      activo: false,
+      ajustes_razonables: []
+    }
+  },
+  {
+    id: 14,
+    nombre_legal: "Sebastián Enrique Ortiz Loyola",
+    nombre_social: "Sebas Ortiz",
+    nacionalidad: "Chile",
+    fecha_nacimiento: "1989-11-04",
+    identidad_genero: "Masculino",
+    contacto: {
+      whatsapp: "+56999888877",
+      email: "sebas.ortiz@email.com",
+      linkedin: "https://linkedin.com/in/sebastián-ortiz-enfermería"
+    },
+    ubicacion: {
+      region_residencia: "Región Metropolitana de Santiago",
+      comuna_residencia: "Providencia",
+      comuna_otra: "",
+      regiones_movilidad: ["Región Metropolitana de Santiago"]
+    },
+    formacion: {
+      nivel_estudios: "universitario",
+      area_laboral: "Enfermería (Universitaria)",
+      experiencia_laboral_total_anos: 8,
+      certificaciones: "Diplomado en Salud Familiar, Manejo de Heridas y Ostomías, RCP/BLS/ACLS (AHA)"
+    },
+    historial_laboral: [
+      { cargo: "Enfermero Clínico de Emergencias", empresa: "Clínica Santa María", funciones: "Evaluación inicial de urgencias, estabilización de pacientes críticos y administración de fármacos intravenosos." },
+      { cargo: "Enfermero Consultor", empresa: "Sence Salud Capacitaciones", funciones: "Docencia en cursos de primeros auxilios y de prevención de infecciones IAAS para OTECs." }
+    ],
+    inclusion_ley_21015: {
+      activo: false,
+      ajustes_razonables: []
+    }
+  },
+  {
+    id: 15,
+    nombre_legal: "Constanza Belén Flores Sanhueza",
+    nombre_social: "Conny Flores",
+    nacionalidad: "Chile",
+    fecha_nacimiento: "1993-08-11",
+    identidad_genero: "Femenino",
+    contacto: {
+      whatsapp: "+56988889999",
+      email: "constanza.flores@email.com",
+      linkedin: "https://linkedin.com/in/conny-flores-tens"
+    },
+    ubicacion: {
+      region_residencia: "Región de Ñuble",
+      comuna_residencia: "Chillán",
+      comuna_otra: "",
+      regiones_movilidad: ["Región de Ñuble", "Región del Biobío"]
+    },
+    formacion: {
+      nivel_estudios: "tecnico-profesional",
+      area_laboral: "Técnico en Enfermería (TENS)",
+      experiencia_laboral_total_anos: 5,
+      certificaciones: "Curso IAAS, Curso RCP Básico, Toma de Muestras"
+    },
+    historial_laboral: [
+      { cargo: "TENS Ambulatorio", empresa: "Centro Médico Chillán", funciones: "Preparación de box de atención, asistencia a médicos y curación menor." }
+    ],
+    inclusion_ley_21015: {
+      activo: true,
+      ajustes_razonables: ["Compatibilidad con Software Lector de Pantalla (Screen Readers)"]
+    }
   }
 ];
 
@@ -189,6 +516,7 @@ export const useEmpresaStore = defineStore('empresa', {
     candidates: [],        // Candidates that match search & have score >= 75%
     currentIndex: 0,       // Current card index in swipe deck
     matches: [],           // List of matched profiles
+    swipeHistory: [],      // History of swiped cards for Undo / Rewind feature
     isLoading: false,
     error: null,
   }),
@@ -209,6 +537,7 @@ export const useEmpresaStore = defineStore('empresa', {
       this.isLoading = true;
       this.currentIndex = 0;
       this.candidates = [];
+      this.swipeHistory = [];
       const authStore = useAuthStore();
       
       // If we are in dev mode, run the Match Engine algorithm client-side!
@@ -415,17 +744,22 @@ export const useEmpresaStore = defineStore('empresa', {
 
     swipeLeft() {
       // Dislike candidate
-      console.log(`Candidato ${this.currentCandidate.id} descartado`);
+      if (!this.currentCandidate) return;
+      const candidate = this.currentCandidate;
+      console.log(`Candidato ${candidate.id} descartado`);
+      this.swipeHistory.push({ id: candidate.id, action: 'dislike' });
       this.currentIndex++;
     },
 
     async swipeRight() {
       // Like / Match Candidate
+      if (!this.currentCandidate) return;
       const candidate = this.currentCandidate;
       console.log(`Match propuesto para: ${candidate.nombre_social || candidate.nombre_legal}`);
       
       // In this version, every Swipe Right is a Match (mutually accepted for simulation)
       this.matches.push(candidate);
+      this.swipeHistory.push({ id: candidate.id, action: 'like' });
       this.currentIndex++;
       
       // If we have API, notify backend
@@ -445,6 +779,47 @@ export const useEmpresaStore = defineStore('empresa', {
         }
       }
       return true; // Match triggers popup animation
+    },
+
+    async superLike() {
+      // Super Like / Special Match Candidate
+      if (!this.currentCandidate) return;
+      const candidate = this.currentCandidate;
+      console.log(`Super Match propuesto para: ${candidate.nombre_social || candidate.nombre_legal}`);
+      
+      const candidateClone = { ...candidate, isSuperMatch: true };
+      this.matches.push(candidateClone);
+      this.swipeHistory.push({ id: candidate.id, action: 'superlike' });
+      this.currentIndex++;
+      
+      // If we have API, notify backend
+      const authStore = useAuthStore();
+      if (!authStore.isDevMode) {
+        try {
+          await fetch('/api/matches/', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${authStore.token}`,
+              'Content-Type': 'application/json',
+              'is_super_like': 'true'
+            },
+            body: JSON.stringify({ candidate_id: candidate.id })
+          });
+        } catch (err) {
+          console.error('Error al reportar Match al servidor:', err);
+        }
+      }
+      return true;
+    },
+
+    undoSwipe() {
+      if (this.swipeHistory.length === 0) return;
+      const lastSwipe = this.swipeHistory.pop();
+      this.currentIndex--;
+      if (lastSwipe.action === 'like' || lastSwipe.action === 'superlike') {
+        this.matches = this.matches.filter(m => m.id !== lastSwipe.id);
+      }
+      console.log(`Deshecho el deslizamiento del candidato ${lastSwipe.id}`);
     }
   }
 });

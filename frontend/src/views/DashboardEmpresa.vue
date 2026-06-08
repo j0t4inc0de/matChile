@@ -9,9 +9,6 @@
     <nav class="px-4 sm:px-[5vw] py-4 sm:py-6 flex justify-between items-center border-b border-slate-200 dark:border-white/10">
       <div class="nav-logo flex items-center gap-2 sm:gap-4">
         MatChile
-        <span class="text-[9px] uppercase font-extrabold tracking-widest text-teal border border-teal/20 px-2.5 py-0.5 rounded-full select-none" style="font-family: var(--font-body); letter-spacing: 1px;">
-          Empresa / OTEC
-        </span>
       </div>
       <div class="nav-cta flex gap-2 items-center">
         <button 
@@ -87,11 +84,17 @@
           <div 
             v-for="match in matchesList" 
             :key="match.id"
-            class="p-4 bg-white rounded-2xl border border-outline-variant/30 hover:border-outline-variant/60 transition-colors flex items-center justify-between shadow-sm"
+            class="p-4 rounded-2xl border transition-colors flex items-center justify-between shadow-sm"
+            :class="[
+              match.isSuperMatch 
+                ? 'bg-sky-50/70 border-sky-300 dark:bg-sky-950/20 dark:border-sky-800' 
+                : 'bg-white border-outline-variant/30 hover:border-outline-variant/60'
+            ]"
           >
             <div class="space-y-1">
-              <h4 class="text-xs font-black text-slate-900 leading-tight">
+              <h4 class="text-xs font-black text-slate-900 leading-tight flex items-center gap-1">
                 {{ match.nombre_social || match.nombre_legal }}
+                <span v-if="match.isSuperMatch" class="material-symbols-outlined text-[12px] text-sky-500 font-bold" title="Super Match">star</span>
               </h4>
               <p class="text-[10px] text-slate-500 line-clamp-1">
                 {{ match.formacion.area_laboral }}
@@ -187,8 +190,11 @@
             :candidates="empresaStore.candidates"
             :current-index="empresaStore.currentIndex"
             :modal-open="isModalOpen || showMatchModal"
+            :can-undo="empresaStore.swipeHistory.length > 0"
             @swipe-left="handleSwipeLeft"
             @swipe-right="handleSwipeRight"
+            @super-like="handleSuperLike"
+            @undo="handleUndo"
             @expand="handleExpand"
           />
 
@@ -218,13 +224,38 @@
       <div class="relative w-full max-w-md bg-white border border-outline-variant/60 rounded-[30px] p-8 shadow-2xl text-center space-y-6 animate-in fade-in zoom-in duration-300">
         
         <!-- Match glowing icon -->
-        <div class="relative w-20 h-20 bg-primary-container/10 rounded-full flex items-center justify-center mx-auto">
-          <div class="absolute inset-0 rounded-full bg-primary-container/20 animate-ping"></div>
-          <span class="material-symbols-outlined text-4xl text-primary animate-pulse">favorite</span>
+        <div 
+          class="relative w-20 h-20 rounded-full flex items-center justify-center mx-auto"
+          :class="[
+            matchedCandidate.isSuperMatch 
+              ? 'bg-sky-500/10' 
+              : 'bg-primary-container/10'
+          ]"
+        >
+          <div 
+            class="absolute inset-0 rounded-full animate-ping"
+            :class="[
+              matchedCandidate.isSuperMatch 
+                ? 'bg-sky-500/20' 
+                : 'bg-primary-container/20'
+            ]"
+          ></div>
+          <span 
+            class="material-symbols-outlined text-4xl animate-pulse"
+            :class="[
+              matchedCandidate.isSuperMatch 
+                ? 'text-sky-500' 
+                : 'text-primary'
+            ]"
+          >
+            {{ matchedCandidate.isSuperMatch ? 'star' : 'favorite' }}
+          </span>
         </div>
 
         <div class="space-y-2.5">
-          <h3 class="font-display text-headline-sm font-bold text-slate-900">¡Ha Ocurrido un Match!</h3>
+          <h3 class="font-display text-headline-sm font-bold text-slate-900">
+            {{ matchedCandidate.isSuperMatch ? '¡Super Match Detectado!' : '¡Ha Ocurrido un Match!' }}
+          </h3>
           <p class="text-sm text-slate-600 leading-relaxed">
             Has conectado con <span class="font-black text-primary underline decoration-primary-container">{{ matchedCandidate.nombre_social || matchedCandidate.nombre_legal }}</span>.
           </p>
@@ -323,6 +354,18 @@ export default {
       showMatchModal.value = true;
     };
 
+    const handleSuperLike = async () => {
+      const candidate = empresaStore.currentCandidate;
+      if (!candidate) return;
+      matchedCandidate.value = candidate;
+      await empresaStore.superLike();
+      showMatchModal.value = true;
+    };
+
+    const handleUndo = () => {
+      empresaStore.undoSwipe();
+    };
+
     const handleExpand = (candidate) => {
       selectedCandidate.value = candidate;
       isModalOpen.value = true;
@@ -346,6 +389,8 @@ export default {
       handleSearch,
       handleSwipeLeft,
       handleSwipeRight,
+      handleSuperLike,
+      handleUndo,
       handleExpand,
       logout,
       postulanteStore
