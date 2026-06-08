@@ -41,13 +41,13 @@
             class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-4 border-sky-500 text-sky-500 font-display uppercase tracking-widest text-lg font-black px-6 py-2.5 rounded select-none pointer-events-none z-35 bg-black/5 backdrop-blur-xs text-center"
             :style="{ opacity: Math.min(-dragY / 100, 1) }"
           >
-            SUPER MATCH
+            PRIORITARIO
           </div>
 
           <!-- Card Header -->
           <div class="flex justify-between items-start pointer-events-none">
             <span class="inline-flex items-center px-3 py-1 bg-primary-container/10 border border-primary-container/20 text-primary text-[10px] font-extrabold rounded-full uppercase tracking-wider">
-              Match {{ candidate.matchScore }}%
+              Afinidad {{ candidate.matchScore }}%
             </span>
             <span 
               v-if="candidate.inclusion_ley_21015?.activo"

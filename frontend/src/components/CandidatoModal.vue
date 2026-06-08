@@ -15,7 +15,7 @@
           <!-- Badges -->
           <div class="flex items-center space-x-2 mb-2">
             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary-container/10 text-primary">
-              Match {{ candidate.matchScore }}%
+              Afinidad {{ candidate.matchScore }}%
             </span>
             <span v-if="candidate.inclusion_ley_21015?.activo" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600">
               Ley N° 21.015
