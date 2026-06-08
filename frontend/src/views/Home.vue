@@ -52,11 +52,11 @@
   </div>
   <div class="stat-item">
     <div class="stat-num">+<span>2.5</span>k</div>
-    <div class="stat-label">Relatores Activos</div>
+    <div class="stat-label">Personas Activas</div>
   </div>
   <div class="stat-item">
     <div class="stat-num"><span>150</span>+</div>
-    <div class="stat-label">OTECs Registradas</div>
+    <div class="stat-label">Empresas Registradas</div>
   </div>
   <div class="stat-item">
     <div class="stat-num"><span>24</span>h</div>
@@ -84,26 +84,26 @@
   <div class="steps-header">
     <div class="section-eyebrow">Proceso</div>
     <h2 class="section-title">Vinculación en 3 pasos</h2>
-    <p class="section-sub">Eliminamos las trabas de los portales de empleo tradicionales con flujos optimizados para relatores, empresas y OTECs.</p>
+    <p class="section-sub">Eliminamos las trabas de los portales de empleo tradicionales con flujos optimizados.</p>
   </div>
   <div class="steps-grid">
     <div class="step">
-      <div class="step-num">01</div>
+      <div class="step-num"><h1>01</h1></div>
       <div class="step-icon"><User class="w-8 h-8" /></div>
       <h3>Crea tu Cuenta</h3>
-      <p>Regístrate en segundos con flujos dedicados según tu rol: postulante, empresa u OTEC. Seguro y eficiente.</p>
+      <p>Regístrate en segundos con flujos dedicados según tu rol: postulante ó empresa de forma segura y eficiente.</p>
     </div>
     <div class="step">
-      <div class="step-num">02</div>
+      <div class="step-num"><h1>02</h1></div>
       <div class="step-icon"><Zap class="w-8 h-8" /></div>
       <h3>Motor de Match</h3>
       <p>El algoritmo calcula coincidencias por comunas, especialidades y filtros excluyentes para emparejar perfiles con precisión.</p>
     </div>
     <div class="step">
-      <div class="step-num">03</div>
+      <div class="step-num"><h1>03</h1></div>
       <div class="step-icon"><LinkIcon class="w-8 h-8" /></div>
       <h3>Conexión Inmediata</h3>
-      <p>Match mutuo abre canales directos de comunicación y exportación de CVs en formato estándar Sence al instante.</p>
+      <p>Match mutuo abre canales directos de comunicación y exportación de CVs en formato estándar al instante.</p>
     </div>
   </div>
 </section>
@@ -114,13 +114,13 @@
     <div>
       <div class="section-eyebrow">Características</div>
       <h2 class="section-title">IA integrada en cada paso</h2>
-      <p class="section-sub">Las "Varitas Mágicas" asisten a relatores y empresas para redactar perfiles sin sesgos y conectar con el talento correcto.</p>
+      <p class="section-sub">Las "Varitas Mágicas" asisten a empresas para redactar perfiles sin sesgos y conectar con el talento correcto.</p>
       <div class="feature-list">
         <div class="feature-item">
           <div class="feat-check">✓</div>
           <div class="feat-text">
             <h4>Generación automática de habilidades</h4>
-            <p>IA sugiere competencias laborales en base al rol declarado, eliminando sesgos académicos habituales.</p>
+            <p>IA sugiere competencias laborales en base al rol declarado, eliminando sesgos habituales.</p>
           </div>
         </div>
         <div class="feature-item">
@@ -134,7 +134,7 @@
           <div class="feat-check">✓</div>
           <div class="feat-text">
             <h4>4 filtros jerárquicos</h4>
-            <p>Profesión excluyente, experiencia, geolocalización y certificaciones para matches 100% relevantes.</p>
+            <p>Profesión u Oficio, geolocalización, remuneración, experiencia para matches 100% relevantes.</p>
           </div>
         </div>
       </div>
@@ -147,9 +147,9 @@
       </div>
       <div class="feat-card">
         <div class="feat-card-icon"><FileText class="w-8 h-8" /></div>
-        <h4>Exportación Sence</h4>
-        <p>Genera CVs en formato PDF estándar Sence con un clic. Compatible con todos los requerimientos del Ministerio del Trabajo.</p>
-        <div class="badge-sence">✓ Formato Sence Validado</div>
+        <h4>Exportación CV</h4>
+        <p>Genera CVs en formato PDF estándar con un solo clic.</p>
+        <!-- <div class="badge-sence">✓ Formato Sence Validado</div> -->
       </div>
       <div class="feat-card">
         <div class="feat-card-icon"><MapPin class="w-8 h-8" /></div>
@@ -179,13 +179,13 @@
           <p>Paleta de alto contraste para personas con baja visión</p>
         </div>
       </div>
-      <div class="a11y-row">
+      <!-- <div class="a11y-row">
         <div class="a11y-icon"><Keyboard class="w-6 h-6" /></div>
         <div class="a11y-info">
           <h4>Navegación por Teclado</h4>
           <p>Flujo completo sin necesidad de ratón o pantalla táctil</p>
         </div>
-      </div>
+      </div> -->
       <div class="a11y-row">
         <div class="a11y-icon"><Volume2 class="w-6 h-6" /></div>
         <div class="a11y-info">
@@ -209,7 +209,7 @@
   <div class="cta-glow"></div>
   <div class="section-eyebrow" style="margin-bottom:24px">Únete hoy</div>
   <h2>¿Listo para encontrar tu match perfecto?</h2>
-  <p>Más de 2.500 relatores ya encontraron oportunidades en menos de 24 horas.</p>
+  <p>Más de 2.500 personas ya encontraron oportunidades en menos de 24 horas.</p>
   <div class="cta-btns">
     <button class="btn-hero-primary" @click="openOnboarding('postulante')">Comenzar como Postulante <span class="arrow">→</span></button>
     <button class="btn-hero-secondary" @click="openOnboarding('empresa')">Registrar mi Empresa</button>
