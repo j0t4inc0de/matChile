@@ -127,11 +127,11 @@
       <button 
         @click="$emit('undo')"
         :disabled="!canUndo"
-        class="w-12 h-12 rounded-full bg-amber-50 border border-amber-200/50 text-amber-500 hover:bg-amber-100 flex items-center justify-center shadow-md transition-all active:scale-90 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-amber-50"
+        class="w-16 h-16 rounded-full bg-amber-50 border border-amber-200/50 text-amber-500 hover:bg-amber-100 flex items-center justify-center shadow-md transition-all active:scale-90 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-amber-50"
         aria-label="Deshacer último deslizamiento"
         title="Deshacer (Teclas: Backspace / Flecha Abajo)"
       >
-        <span class="material-symbols-outlined text-2xl font-bold">undo</span>
+        <span class="material-symbols-outlined text-3xl font-bold">undo</span>
       </button>
 
       <!-- Dislike Button -->
@@ -147,11 +147,11 @@
       <!-- Super Like Button -->
       <button 
         @click="triggerSwipe('up')"
-        class="w-12 h-12 rounded-full bg-sky-50 border border-sky-200/50 text-sky-500 hover:bg-sky-100 flex items-center justify-center shadow-md transition-all active:scale-90"
+        class="w-16 h-16 rounded-full bg-sky-50 border border-sky-200/50 text-sky-500 hover:bg-sky-100 flex items-center justify-center shadow-md transition-all active:scale-90"
         aria-label="Super Match candidato"
         title="Super Match (Flecha Arriba)"
       >
-        <span class="material-symbols-outlined text-2xl font-bold">star</span>
+        <span class="material-symbols-outlined text-3xl font-bold">star</span>
       </button>
 
       <!-- Like / Match Button -->

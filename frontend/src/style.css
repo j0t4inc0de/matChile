@@ -683,6 +683,20 @@ body, nav, div, button, input, select, textarea, span, h1, h2, h3, h4, h5, h6, p
   border: 2px solid #00ff00 !important;
 }
 
+[data-theme="high-contrast"] .bg-amber-50,
+[data-theme="high-contrast"] .bg-amber-100 {
+  background-color: #000000 !important;
+  color: #ffcc00 !important;
+  border: 2px solid #ffcc00 !important;
+}
+
+[data-theme="high-contrast"] .bg-sky-50,
+[data-theme="high-contrast"] .bg-sky-100 {
+  background-color: #000000 !important;
+  color: #00ffff !important;
+  border: 2px solid #00ffff !important;
+}
+
 /* Fix Tailwind color opacity / variable compilation bugs for custom theme variables */
 .text-brand-primary {
   color: var(--color-brand-primary) !important;
