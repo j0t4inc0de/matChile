@@ -165,13 +165,6 @@
         <div class="flex flex-col space-y-3 text-left w-full">
           <div class="flex justify-between items-center">
             <span class="text-[9px] font-bold text-slate uppercase tracking-wider block">Lista de Contacto</span>
-            <span 
-              v-if="matchesList.length > 0"
-              class="text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center font-black bg-primary text-white"
-              :style="postulanteStore.highContrastMode ? { backgroundColor: '#ffffff', color: '#000000' } : {}"
-            >
-              {{ matchesList.length }}
-            </span>
           </div>
           
           <!-- Contacts list scroll -->
