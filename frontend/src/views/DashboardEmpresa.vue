@@ -5,40 +5,32 @@
     <div v-if="!postulanteStore.highContrastMode" class="absolute top-0 right-1/4 w-[400px] h-[400px] bg-teal/10 rounded-full blur-[100px] pointer-events-none -z-10 animate-pulse"></div>
     <div v-if="!postulanteStore.highContrastMode" class="absolute bottom-0 left-10 w-[300px] h-[300px] bg-teal-dim/10 rounded-full blur-[80px] pointer-events-none -z-10"></div>
 
-    <!-- Header (Navbar Kept Exactly As Original) -->
+    <!-- Header (Navbar Kept Exactly As Original, only 2 CTA buttons on right, menu icon on left) -->
     <nav 
-      class="px-4 sm:px-[5vw] py-4 sm:py-6 flex justify-between items-center border-b border-slate-200 dark:border-white/10 sticky top-0 z-50 bg-white/50 dark:bg-navy/50 backdrop-blur-md"
+      class="h-[73px] px-4 sm:px-[5vw] flex justify-between items-center border-b border-slate-200 dark:border-white/10 sticky top-0 z-50 bg-white/80 dark:bg-navy/80 backdrop-blur-md"
       :style="postulanteStore.highContrastMode ? { backgroundColor: '#000000', borderColor: '#ffffff' } : {}"
     >
       <div class="nav-logo flex items-center gap-2 sm:gap-4">
+        <!-- 3-Lines menu icon (Hamburger) -->
+        <button 
+          @click="showMatchesSidebar = !showMatchesSidebar"
+          class="p-1.5 rounded-lg text-slate-700 dark:text-white hover:bg-slate-100 dark:hover:bg-navy-light/30 focus:outline-none flex items-center transition-colors"
+          title="Menú de Navegación"
+          :style="postulanteStore.highContrastMode ? { border: '1px solid #ffffff' } : {}"
+        >
+          <span class="material-symbols-outlined text-2xl font-bold">menu</span>
+        </button>
+
         MatChile
         <span 
           class="text-[9px] uppercase font-extrabold tracking-widest text-teal border border-teal/20 px-2.5 py-0.5 rounded-full select-none" 
           style="font-family: var(--font-body); letter-spacing: 1px;"
           :style="postulanteStore.highContrastMode ? { color: '#ffff00', borderColor: '#ffff00' } : {}"
         >
-          Empresa / OTEC
         </span>
       </div>
       <div class="nav-cta flex gap-2 items-center">
-        <!-- Professional connections toggle button in Navbar (Heart icon removed) -->
-        <button 
-          @click="showMatchesSidebar = !showMatchesSidebar"
-          class="btn-primary flex items-center gap-1.5 px-3 py-2 sm:px-4 sm:py-2 text-xs font-bold focus:outline-none"
-          title="Menú de Navegación y Conexiones"
-          :style="postulanteStore.highContrastMode ? { backgroundColor: '#ffffff', color: '#000000' } : {}"
-        >
-          <span class="material-symbols-outlined text-sm sm:text-base">handshake</span>
-          <span class="hidden sm:inline">Conexiones</span>
-          <span 
-            v-if="matchesList.length > 0" 
-            class="bg-navy text-teal text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center font-black"
-            :style="postulanteStore.highContrastMode ? { backgroundColor: '#000000', color: '#ffffff' } : {}"
-          >
-            {{ matchesList.length }}
-          </span>
-        </button>
-        
+        <!-- 1. Alto Contraste (A11y) -->
         <button 
           @click="postulanteStore.toggleHighContrast()"
           class="btn-primary flex items-center gap-1.5 px-3 py-2 sm:px-4 sm:py-2 text-xs font-bold focus:outline-none"
@@ -48,7 +40,7 @@
           <span class="material-symbols-outlined text-sm sm:text-base">contrast</span>
           <span class="hidden sm:inline">{{ postulanteStore.highContrastMode ? 'Normal' : 'A11y' }}</span>
         </button>
-        
+        <!-- 2. Salir -->
         <button 
           @click="logout" 
           class="btn-ghost flex items-center gap-1.5 px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold focus:outline-none"
@@ -64,35 +56,33 @@
     <!-- Main Workspace -->
     <main class="flex-grow max-w-container-max w-full mx-auto px-4 lg:px-6 py-6 lg:py-10 flex flex-col lg:flex-row gap-8 items-start relative">
       
-      <!-- Backdrop for mobile drawer -->
+      <!-- Backdrop for drawer (Starts below the navbar) -->
       <div 
         v-if="showMatchesSidebar" 
-        class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-45 lg:hidden"
+        class="fixed inset-0 top-[73px] bg-slate-950/60 backdrop-blur-sm z-30"
         @click="showMatchesSidebar = false"
       ></div>
 
-      <!-- Left Sidebar (Drawer on mobile, static on desktop) -->
+      <!-- Left Sidebar (Drawer below navbar) -->
       <div 
-        v-show="showMatchesSidebar || matchesList.length >= 0" 
-        class="fixed top-0 left-0 h-full w-80 max-w-[80vw] z-50 p-6 flex flex-col space-y-5 bg-white dark:bg-navy border-r border-slate-200 dark:border-white/10 shadow-2xl transition-transform duration-300 lg:static lg:h-auto lg:w-80 lg:max-w-none lg:border lg:rounded-[30px] lg:shadow-xl lg:translate-x-0 lg:glass-panel lg:border-white/40 lg:bg-transparent"
+        class="fixed top-[73px] left-0 h-[calc(100vh-73px)] w-80 max-w-[80vw] z-40 p-6 flex flex-col space-y-5 bg-white dark:bg-navy border-r border-slate-200 dark:border-white/10 shadow-2xl transition-transform duration-300 lg:glass-panel lg:border-white/40"
         :style="postulanteStore.highContrastMode ? { backgroundColor: '#000000', borderColor: '#ffffff' } : {}"
         :class="[
-          showMatchesSidebar ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+          showMatchesSidebar ? 'translate-x-0' : '-translate-x-full'
         ]"
       >
-        <!-- Mobile close and title -->
+        <!-- Close and title -->
         <div class="border-b border-outline-variant/20 pb-3 flex justify-between items-center">
           <div class="text-left">
             <h3 class="font-display text-sm font-extrabold text-primary flex items-center" :style="postulanteStore.highContrastMode ? { color: '#ffff00' } : {}">
               <span class="material-symbols-outlined mr-2 text-xl">domain</span>
-              Navegación
+              NAVEGACIÓN
             </h3>
           </div>
-          <!-- Mobile Close Button -->
+          <!-- Close Button -->
           <button 
             @click="showMatchesSidebar = false" 
-            class="p-1 rounded-full bg-slate-100 dark:bg-navy-mid hover:bg-slate-200 text-slate lg:hidden"
-            aria-label="Cerrar panel"
+            class="p-1 rounded-full bg-slate-100 dark:bg-navy-mid hover:bg-slate-200 text-slate focus:outline-none"
           >
             <span class="material-symbols-outlined text-lg">close</span>
           </button>
@@ -100,8 +90,6 @@
 
         <!-- 1. NAVIGATION TABS -->
         <div class="flex flex-col space-y-1.5 text-left w-full">
-          <span class="text-[9px] font-bold text-slate uppercase tracking-wider block mb-1">Navegación</span>
-          
           <!-- Tab: Buscar Talentos -->
           <button 
             @click="activeTab = 'search'; showMatchesSidebar = false"
@@ -161,7 +149,7 @@
 
         <div class="border-t border-outline-variant/10 my-1"></div>
         
-        <!-- 2. QUICK CONNECTIONS LIST (Handshake icon, click goes directly to chat) -->
+        <!-- 2. QUICK CONNECTIONS LIST (Handshake icon) -->
         <div class="flex flex-col space-y-3 text-left w-full">
           <div class="flex justify-between items-center">
             <span class="text-[9px] font-bold text-slate uppercase tracking-wider block">Lista de Contacto</span>
