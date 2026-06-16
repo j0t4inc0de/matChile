@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  matchile-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: matchile-backend
+    restart: always
+    environment:
+      - DJANGO_DEBUG=False
+      - ALLOWED_HOSTS=*
+    volumes:
+      - matchile_db_data:/app/data
+    networks:
+      - proxy_network
+
+  matchile-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: matchile-web
+    restart: always
+    expose:
+      - "80"
+    depends_on:
+      - matchile-backend
+    networks:
+      - proxy_network
+
+volumes:
+  matchile_db_data:
+
+networks:
+  proxy_network:
+    external: true
